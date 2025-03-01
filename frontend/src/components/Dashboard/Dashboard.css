@@ -1,0 +1,109 @@
+/* Dashboard Title */
+.dashboard-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #f8f9fa; /* Light color for contrast */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.2); /* Soft glow */
+}
+
+/* Subtitle */
+.dashboard-subtitle {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #f8f9fa; /* Light color for contrast */
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Fade-in effect */
+.dashboard-title, .dashboard-subtitle {
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: fadeIn 0.8s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+
+.dashboard-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.dashboard-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.graph-container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.graph-image {
+  width: 100%;
+  height: 200px; /* Fixed height for uniformity */
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Modal image styling */
+.modal-img {
+  width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+}
+
+
+
+  /* Summary card styling */
+  .summary-card {
+    margin-top: 1rem;
+  }
+  
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .featured-graph-container {
+      height: 300px;
+    }
+    
+    .graph-container {
+      height: 180px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .featured-graph-container {
+      height: 250px;
+    }
+    
+    .dashboard-title {
+      font-size: 1.8rem;
+    }
+    
+    .dashboard-subtitle {
+      font-size: 1rem;
+    }
+  }
