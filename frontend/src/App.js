@@ -1,51 +1,74 @@
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+// App.js
+import { BrowserRouter as Router, Route, Routes, Link, useLocation } from 'react-router-dom';
 import QuestionBank from './components/QuestionBank';
 import Dashboard from './components/Dashboard/Dashboard';
 import GradeForm from "./components/GradeForm";
 import Improvements from "./components/Improvements";
+import Home from "./components/Home/Home";
 import "./App.css";
+
+function Navbar() {
+  const location = useLocation();
+  
+  return (
+    <div className="navbar">
+      <div className="navbar-content">
+        <div className="navbar-brand">Smart Grade Analytics</div>
+        <div className="navbar-links">
+          <nav>
+            {/* {location.pathname === '/' && (
+              <>
+                <Link to="/dashboard">Dashboard</Link>
+                <Link to="/grade-prediction">Grade Prediction</Link>
+              </>
+            )} */}
+            {location.pathname === '/dashboard' && (
+              <>
+                <Link to="/">Home</Link>
+                <Link to="/grade-prediction">Grade Prediction</Link>
+              </>
+            )}
+            {location.pathname === '/grade-prediction' && (
+              <>
+                <Link to="/">Home</Link>
+                <Link to="/dashboard">Dashboard</Link>
+                <Link to="/questionbank">Question Bank</Link>
+              </>
+            )}
+            {location.pathname === '/questionbank' && (
+              <>
+                <Link to="/">Home</Link>
+                <Link to="/grade-prediction">Grade Prediction</Link>
+              </>
+            )}
+          </nav>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function App() {
   return (
     <Router>
       <div className="App">
-        {/* Fixed Navigation Bar */}
-        <div className="navbar">
-          <div className="navbar-content">
-            <div className="navbar-brand">Grade Prediction System</div>
-            <div className="navbar-links">
-              <nav>
-                {/* Use Link components for routing */}
-                <Link to="/questionbank">Question Bank</Link>
-                <Link to="/dashboard">Dashboard</Link>
-                <Link to="/">Home</Link>
-              </nav>
-            </div>
-          </div>
-        </div>
+        <Navbar />
         
         {/* Routes for different pages */}
         <Routes>
-          {/* Home page route */}
-          <Route path="/" element={
+          <Route path="/" element={<Home />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/grade-prediction" element={
             <div className="content-container">
-              {/* Left Section - Improvements */}
               <div className="improvements-section">
                 <Improvements />
               </div>
-              
-              {/* Right Section - Grade Prediction Form */}
               <div className="prediction-section">
                 <GradeForm />
               </div>
             </div>
           } />
-          
-          {/* Question Bank route */}
           <Route path="/questionbank" element={<QuestionBank />} />
-          
-          {/* Dashboard route */}
-          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </div>
     </Router>

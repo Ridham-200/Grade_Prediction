@@ -68,7 +68,7 @@ const Dashboard = () => {
           <Col>
             <h1 className="dashboard-title text-center">Analytics Dashboard</h1>
             <h3 className="dashboard-subtitle text-center ">
-              Comprehensive visualization of student performance and grade predictions
+              Comprehensive visualization of students performance and grade predictions
             </h3>
           </Col>
         </Row>

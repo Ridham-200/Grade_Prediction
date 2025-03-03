@@ -26,7 +26,13 @@ const Improvements = () => {
       id: 5,
       title: "Practice Previous Papers",
       description: "Solve previous years' question papers to understand exam patterns and important topics."
+    },
+    {
+      id: 6,
+      title: "Effective Time Management",
+      description: "Prioritize tasks and allocate sufficient time for studying, assignments, and revision to avoid last-minute stress."
     }
+    
   ];
 
   return (

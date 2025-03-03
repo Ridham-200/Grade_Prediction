@@ -4,9 +4,10 @@ body {
   padding: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #0a192f; /* Navy blue background */
-  color: #333;
+  color: white;
 }
 
+/* Ensure full height for layout */
 .App {
   min-height: 100vh;
   display: flex;
@@ -65,51 +66,59 @@ body {
   width: 100%;
 }
 
-/* Main content area styles */
+/* Grade Prediction Page Layout */
 .content-container {
   display: flex;
-  flex-direction: row;
-  flex: 1;
-  padding: 2rem;
-  max-width: 1400px;
-  margin: 0 auto;
+  justify-content: center;
   gap: 2rem;
+  padding: 3rem 2rem; /* Adding margin from navbar */
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-@media (max-width: 768px) {
-  .content-container {
-    flex-direction: column;
-  }
-}
-
-/* Left section - Improvements */
-.improvements-section {
-  flex: 1;
-  min-width: 300px;
-}
-
-/* Right section - Grade Form */
+/* Both sections should have the same size */
+.improvements-section,
 .prediction-section {
   flex: 1;
-  min-width: 300px;
+  min-width: 400px; /* Ensure proper width */
+  max-width: 500px; /* Keep a balanced layout */
 }
 
 /* Card styles */
 .card {
   background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  padding: 1.5rem;
-  height: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  padding: 2rem;
+  text-align: center;
+  width: 100%;
+  min-height: 320px; /* Ensuring both cards are of same height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
   color: #0a192f;
-  margin-top: 0;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid #eee;
-  font-size: 1.25rem;
 }
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .content-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .improvements-section,
+  .prediction-section {
+    width: 90%;
+    max-width: 600px;
+  }
+}
+
 
 /* Form styles */
 form {
