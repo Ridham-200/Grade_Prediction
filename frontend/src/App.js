@@ -53,8 +53,6 @@ function App() {
     <Router>
       <div className="App">
         <Navbar />
-        
-        {/* Routes for different pages */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/dashboard" element={<Dashboard />} />
